@@ -1,0 +1,531 @@
+Program.Sub.ScreenSU.Start
+Gui.frmQuote..Create
+Gui.frmQuote..Caption("QRE: Multi Quote")
+Gui.frmQuote..Size(19320,10350)
+Gui.frmQuote..MinX(0)
+Gui.frmQuote..MinY(0)
+Gui.frmQuote..Position(0,0)
+Gui.frmQuote..BackColor(-2147483633)
+Gui.frmQuote..MousePointer(0)
+Gui.frmQuote..Event(UnLoad,frmQuote_UnLoad)
+Gui.frmQuote.gsgcParts.Create(GsGridControl)
+Gui.frmQuote.gsgcParts.Size(18855,8520)
+Gui.frmQuote.gsgcParts.Position(75,975)
+Gui.frmQuote.gsgcParts.Event(CellValueChanged,gsgcParts_CellValueChanged)
+Gui.frmQuote.gsgcParts.Event(RowCellClick,gsgcParts_RowCellClick)
+Gui.frmQuote.txtCustomer.Create(TextBox,"",True,2115,300,0,135,480,True,0,"Arial",8,-2147483643,1)
+Gui.frmQuote.cmdBrowseCust.Create(Button)
+Gui.frmQuote.cmdBrowseCust.Size(600,375)
+Gui.frmQuote.cmdBrowseCust.Position(2460,420)
+Gui.frmQuote.cmdBrowseCust.Caption("^")
+Gui.frmQuote.cmdBrowseCust.Event(Click,cmdBrowseCust_Click)
+Gui.frmQuote.cmdProcess.Create(Button)
+Gui.frmQuote.cmdProcess.Size(1350,375)
+Gui.frmQuote.cmdProcess.Position(17580,405)
+Gui.frmQuote.cmdProcess.Caption("Process")
+Gui.frmQuote.cmdProcess.Event(Click,cmdProcess_Click)
+Gui.frmQuote.lbl1.Create(Label,"Customer #",True,1935,255,0,135,240,True,0,"Arial",8,-2147483633,0)
+Gui.frmQuote.cmdRefresh.Create(Button)
+Gui.frmQuote.cmdRefresh.Size(1470,375)
+Gui.frmQuote.cmdRefresh.Position(16065,405)
+Gui.frmQuote.cmdRefresh.Caption("Refresh")
+Gui.frmQuote.cmdRefresh.Event(Click,cmdRefresh_Click)
+Gui.frmQuote.fraOptions.Create(Frame)
+Gui.frmQuote.fraOptions.Size(3780,765)
+Gui.frmQuote.fraOptions.Position(3150,120)
+Gui.frmQuote.fraOptions.Caption("Options:")
+Gui.frmQuote.optSales.Create(Option)
+Gui.frmQuote.optSales.Size(1575,255)
+Gui.frmQuote.optSales.Position(2055,345)
+Gui.frmQuote.optSales.Parent("fraOptions")
+Gui.frmQuote.optSales.Caption("Sales Order")
+Gui.frmQuote.optQuote.Create(Option)
+Gui.frmQuote.optQuote.Size(1575,255)
+Gui.frmQuote.optQuote.Position(165,345)
+Gui.frmQuote.optQuote.Caption("Quote")
+Gui.frmQuote.optQuote.Parent("fraOptions")
+Gui.frmQuote.optQuote.DefaultValue("True")
+Gui.frmQuote.fraSorting.Create(Frame)
+Gui.frmQuote.fraSorting.Size(5850,765)
+Gui.frmQuote.fraSorting.Position(6975,135)
+Gui.frmQuote.fraSorting.Caption("Sorting")
+Gui.frmQuote.cmdPartSort.Create(Button)
+Gui.frmQuote.cmdPartSort.Size(1215,375)
+Gui.frmQuote.cmdPartSort.Position(120,270)
+Gui.frmQuote.cmdPartSort.Parent("fraSorting")
+Gui.frmQuote.cmdPartSort.Caption("By Part")
+Gui.frmQuote.cmdPartSort.Event(Click,cmdPartSort_Click)
+Gui.frmQuote.cmdDescriptionSort.Create(Button)
+Gui.frmQuote.cmdDescriptionSort.Size(1335,375)
+Gui.frmQuote.cmdDescriptionSort.Position(2850,270)
+Gui.frmQuote.cmdDescriptionSort.Parent("fraSorting")
+Gui.frmQuote.cmdDescriptionSort.Caption("By Description")
+Gui.frmQuote.cmdDescriptionSort.Event(Click,cmdDescriptionSort_Click)
+Gui.frmQuote.cmdDateSort.Create(Button)
+Gui.frmQuote.cmdDateSort.Size(1215,375)
+Gui.frmQuote.cmdDateSort.Position(1500,270)
+Gui.frmQuote.cmdDateSort.Parent("fraSorting")
+Gui.frmQuote.cmdDateSort.Caption("By Date")
+Gui.frmQuote.cmdDateSort.Event(Click,cmdDateSort_Click)
+Gui.frmQuote.cmdPositionSort.Create(Button)
+Gui.frmQuote.cmdPositionSort.Size(1230,375)
+Gui.frmQuote.cmdPositionSort.Position(4290,270)
+Gui.frmQuote.cmdPositionSort.Caption("By Position")
+Gui.frmQuote.cmdPositionSort.Event(Click,cmdPositionSort_Click)
+Gui.frmQuote.cmdPositionSort.Parent("fraSorting")
+Gui.frmQuote.lblPartSort.Create(Label,"ASC",False,1935,255,0,13305,765,True,0,"Arial",8,-2147483633,0)
+Gui.frmQuote.lblDescSort.Create(Label,"ASC",False,1935,255,0,16230,735,True,0,"Arial",8,-2147483633,0)
+Gui.frmQuote.lblDateSort.Create(Label,"ASC",False,1935,255,0,13065,735,True,0,"Arial",8,-2147483633,0)
+Gui.frmQuote.lblPositionSort.Create(Label,"ASC",False,1935,255,0,12795,765,True,0,"Arial",8,-2147483633,0)
+Gui.frmQuote.fraSelection.Create(Frame)
+Gui.frmQuote.fraSelection.Size(3000,720)
+Gui.frmQuote.fraSelection.Position(12930,135)
+Gui.frmQuote.fraSelection.Caption("Mass Selection")
+Gui.frmQuote.cmdSelectAll.Create(Button)
+Gui.frmQuote.cmdSelectAll.Size(1350,375)
+Gui.frmQuote.cmdSelectAll.Position(60,270)
+Gui.frmQuote.cmdSelectAll.Parent("fraSelection")
+Gui.frmQuote.cmdSelectAll.Caption("Select All")
+Gui.frmQuote.cmdSelectAll.Event(Click,cmdSelectAll_Click)
+Gui.frmQuote.cmdDeselect.Create(Button)
+Gui.frmQuote.cmdDeselect.Size(1395,375)
+Gui.frmQuote.cmdDeselect.Position(1545,270)
+Gui.frmQuote.cmdDeselect.Parent("fraSelection")
+Gui.frmQuote.cmdDeselect.Caption("Deselect All")
+Gui.frmQuote.cmdDeselect.Event(Click,cmdDeselect_Click)
+Gui.frmQuote.gsgcPBAll.Create(GsGridControl)
+Gui.frmQuote.gsgcPBAll.Visible(False)
+Gui.frmQuote.gsgcPBAll.Size(2295,1215)
+Gui.frmQuote.gsgcPBAll.Position(16680,8490)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+v.Global.lThreshold.Declare
+V.Global.lCount.Declare
+Program.External.Include.Library("GAB_5655_QRE_QUICK_PRICE.lib")
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+gui.frmQuote.optQuote.Value(1)
+gui.frmQuote..Show
+gui.frmQuote.gsgcParts.anchor(15)
+gui.frmQuote.cmdProcess.anchor(9)
+gui.frmQuote.cmdRefresh.anchor(9)
+f.Intrinsic.Control.CallSub(SetContextMenus)
+F.ODBC.Connection!CONX.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+Program.Sub.Main.End
+
+Program.Sub.cmdBrowseCust_Click.Start
+V.Local.sret.Declare(String)
+V.Local.sTitles.Declare(String)
+V.Local.iWidths.Declare(String)
+V.Local.stemp.Declare(String)
+v.Local.sCust.Declare(string)
+f.Intrinsic.UI.SetBrowserHotTypeAhead(true)
+
+F.intrinsic.string.split("Customer*!*Name Customer","*!*",v.local.sTitles)
+F.intrinsic.string.split("2000*!*3000","*!*",v.local.iWidths)
+
+V.Local.ssql.Declare(String)
+V.Local.ssql.set("SELECT Customer, Name_Customer FROM V_CUSTOMER_MASTER")
+
+F.intrinsic.ui.browser("Select a Customer",conx,v.Local.ssql,V.local.sTitles,V.local.iWidths,V.local.sRet)
+
+F.intrinsic.control.if(v.local.sRet,"=","***CANCEL***")
+F.intrinsic.control.else
+	v.Local.sCust.Set(v.Local.sRet)
+	f.Intrinsic.Control.CallSub(setTable,"sCust",v.Local.sCust,"sSort","date_last_updated Desc")
+F.Intrinsic.Control.endif
+
+Program.Sub.cmdBrowseCust_Click.End
+
+Program.Sub.SetTable.Start
+v.Local.i.Declare(long)
+v.Local.sSearch.Declare(string)
+v.Local.sret.Declare(string)
+v.Local.sMySort.Declare(string)
+v.Local.scust.Declare(string)
+v.Local.ssql.Declare(string)
+v.Local.sMySort.Set(v.Args.sSort)
+
+'NEED TO GET THE SORTING RIGHT HERE!!!
+
+f.Intrinsic.Control.If(v.DataTable.dtCustomers.Exists,=,True)
+	f.Data.DataTable.Close("dtCustomers")
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.If(v.DataTable.dtDates.Exists,=,true)
+	f.Data.DataTable.Close("dtDates")
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.If(v.DataTable.dtQtys.Exists,=,true)
+	f.Data.DataTable.Close("dtQtys")
+f.Intrinsic.Control.EndIf
+
+f.Data.DataTable.CreateFromSQL("dtDates","conx","select distinct cust_part as 'Part', cust_rev as 'Revision', date_last_updated from GAB_4486_QRE_HEAD")
+f.Data.DataTable.CreateFromSQL("dtQtys","conx","select distinct cust_part as 'Part', cust_rev as 'Revision', overall_qty from GAB_4486_QRE_HEAD")
+f.Data.DataTable.CreateFromSQL("dtHID","conx","select distinct cust_part as 'Part', cust_rev as 'Revision', HID from GAB_4486_QRE_HEAD")
+f.Data.DataTable.CreateFromSQL("dtRouter","conx","select distinct cust_part as 'Part', cust_rev as 'Revision', Router from GAB_4486_QRE_HEAD")
+
+F.intrinsic.string.split(v.args.sCust,"*!*",v.local.sCust)
+gui.frmQuote.txtCustomer.Text(v.local.sCust(0).TRIM)
+'V.Local.ssql.Set("select DISTINCT Cast(0 as bit) as 'Selected', CUSTOMER_PART as 'Part', cust_rev as 'Revision', FG_DESCRIPTION as 'Description', OVERALL_QTY AS 'Quantity' from GAB_4486_BUILD_REC where customer='{0}' AND PARENT='' ORDER BY {1}")
+V.Local.ssql.Set("select DISTINCT Cast(0 as bit) as 'Selected', CUST_PART as 'Part', cust_rev as 'Revision', DESCRIPTION as 'Description', OVERALL_QTY AS 'Quantity' from GAB_4486_QRE_HEAD where customer='{0}' AND PARENT='' ORDER BY {1}")
+F.Intrinsic.String.Build(V.Local.ssql,V.local.sCust(0).trim,v.Local.sMySort,V.Local.ssql)
+F.Data.DataTable.CreateFromSQL("dtCustomers","conx",v.Local.ssql,TRUE)
+f.Data.DataTable.AddColumn("dtCustomers","Date_Last_Updated","Date")
+f.Data.DataTable.AddColumn("dtCustomers","Position","Integer")
+f.Data.DataTable.AddColumn("dtCustomers","HID","Integer")
+f.Data.DataTable.AddColumn("dtCustomers","Router","String")
+
+F.Intrinsic.Control.For(v.Local.i,0,v.DataTable.dtCustomers.RowCount--,1)
+	
+	f.Intrinsic.String.Build("Part='{0}' AND Revision='{1}'",v.DataTable.dtCustomers(v.Local.i).Part!fieldvaltrim,v.DataTable.dtCustomers(v.Local.i).Revision!fieldvaltrim,v.Local.sSearch)
+	f.Data.DataTable.Select("dtDates",v.Local.sSearch,v.local.sret)
+	f.Intrinsic.Control.If(v.Local.sret.Trim,<>,"***NORETURN***")
+		f.Intrinsic.String.Split(v.Local.sret,"*!*",v.Local.sret)
+		f.Data.DataTable.SetValue("dtCustomers",v.Local.i,"Date_Last_Updated",v.DataTable.dtDates(v.Local.sret).Date_last_updated!fieldval)
+	f.Intrinsic.Control.EndIf
+	
+	f.Intrinsic.String.Build("Part='{0}' AND Revision='{1}'",v.DataTable.dtCustomers(v.Local.i).Part!fieldvaltrim,v.DataTable.dtCustomers(v.Local.i).Revision!fieldvaltrim,v.Local.sSearch)
+	f.Data.DataTable.Select("dtQtys",v.Local.sSearch,v.local.sret)
+	f.Intrinsic.Control.If(v.Local.sret.Trim,<>,"***NORETURN***")
+		f.Intrinsic.String.Split(v.Local.sret,"*!*",v.Local.sret)
+		f.Data.DataTable.SetValue("dtCustomers",v.Local.i,"Quantity",v.DataTable.dtQtys(v.Local.sret).OVERALL_QTY!fieldval)
+	f.Intrinsic.Control.EndIf
+	
+	f.Intrinsic.String.Build("Part='{0}' AND Revision='{1}'",v.DataTable.dtCustomers(v.Local.i).Part!fieldvaltrim,v.DataTable.dtCustomers(v.Local.i).Revision!fieldvaltrim,v.Local.sSearch)
+	f.Data.DataTable.Select("dtHID",v.Local.sSearch,v.local.sret)
+	f.Intrinsic.Control.If(v.Local.sret.Trim,<>,"***NORETURN***")
+		f.Intrinsic.String.Split(v.Local.sret,"*!*",v.Local.sret)
+		f.Data.DataTable.SetValue("dtCustomers",v.Local.i,"HID",v.DataTable.dtHID(v.Local.sret).HID!fieldval)
+	f.Intrinsic.Control.EndIf
+	
+	f.Intrinsic.String.Build("Part='{0}' AND Revision='{1}'",v.DataTable.dtCustomers(v.Local.i).Part!fieldvaltrim,v.DataTable.dtCustomers(v.Local.i).Revision!fieldvaltrim,v.Local.sSearch)
+	f.Data.DataTable.Select("dtRouter",v.Local.sSearch,v.local.sret)
+	f.Intrinsic.Control.If(v.Local.sret.Trim,<>,"***NORETURN***")
+		f.Intrinsic.String.Split(v.Local.sret,"*!*",v.Local.sret)
+		f.Data.DataTable.SetValue("dtCustomers",v.Local.i,"Router",v.DataTable.dtRouter(v.Local.sret).Router!fieldvaltrim)
+	f.Intrinsic.Control.EndIf
+	
+	
+f.Intrinsic.Control.Next(v.Local.i)
+
+gui.frmQuote.gsgcParts.DataSource("dtCustomers")
+f.Intrinsic.Control.CallSub(setColumnProperties)
+Program.Sub.SetTable.End
+
+Program.Sub.setColumnProperties.Start
+gui.frmQuote.gsgcParts.AddGridviewFromDatatable("GVCustomers","dtCustomers")
+gui.frmQuote.gsgcParts.SetColumnProperty("GVCustomers","Quantity","AllowEdit","True")
+gui.frmQuote.gsgcParts.SetColumnProperty("GVCustomers","Quantity","ReadOnly","False")
+gui.frmQuote.gsgcParts.SetColumnProperty("GVCustomers","Selected","AllowEdit","True")
+gui.frmQuote.gsgcParts.SetColumnProperty("GVCustomers","Selected","ReadOnly","False")
+gui.frmQuote.gsgcParts.SetColumnProperty("GVCustomers","Position","ReadOnly","False")
+gui.frmQuote.gsgcParts.SetColumnProperty("GVCustomers","Position","AllowEdit","True")
+'gui.frmQuote.gsgcParts.SetColumnProperty("GVCustomers","UP","ReadOnly","True")
+'gui.frmQuote.gsgcParts.SetColumnProperty("GVCustomers","DOWN","ReadOnly","True")
+'gui.frmQuote.gsgcParts.SetColumnProperty("GVCustomers","UP","AllowEdit","False")
+'gui.frmQuote.gsgcParts.SetColumnProperty("GVCustomers","DOWN","AllowEdit","False")
+gui.frmQuote.gsgcParts.SetGridviewProperty("GVCustomers","AllowSort","False")
+Program.Sub.setColumnProperties.End
+
+Program.Sub.cmdProcess_Click.Start
+F.Intrinsic.UI.InvokeWaitDialog("Doing price buildup and quote generation, please wait")
+
+v.Local.sGAB.Declare(string)
+V.Local.SSQL.Declare(STRING)
+V.Local.FUNITPRICE.Declare(FLOAT)
+v.Local.fTotalSell.Declare(float)
+v.Local.iRows.Declare(long)
+v.Local.j.Declare(long)
+V.Local.iRows.Set(0)
+V.Local.SCUSTREVPART.Declare(STRING)
+v.Local.sqty.Declare(string)
+v.Local.sretPH.Declare(string)
+v.Local.sSplit.Declare(string)
+v.Local.p.Declare(long)
+
+gui.frmQuote.gsgcParts.GetRowCount("GVCustomers",v.Local.iRows)
+f.Intrinsic.Math.Sub(v.Local.iRows,1,v.Local.iRows)
+v.Local.i.Declare(long)
+
+f.Intrinsic.Control.CallSub(loadThreshold)
+F.Intrinsic.Control.For(V.Local.i,0,V.local.iRows,1)
+	f.Intrinsic.Control.If(v.datatable.dtCustomers(v.Local.i).Selected!FieldVal,=,true)
+		'Get header reocrds
+		'f.Intrinsic.Control.CallSub(createPreBuilt,"sMyPart",v.datatable.dtCustomers(v.Local.i).Part!fieldvaltrim,"sMyRev",v.datatable.dtCustomers(v.Local.i).Revision!fieldvaltrim,"sMyQTY",v.datatable.dtCustomers(v.Local.i).Quantity!Fieldval)
+		v.Local.ssql.set("SELECT HID,ROUTER FROM GAB_4486_QRE_HEAD WHERE HID='{0}' OR PARENT='{1}' ORDER BY HID ")
+		f.Intrinsic.string.build(v.Local.ssql,V.DataTable.dtCustomers(V.Local.I).hid!fieldval,V.DataTable.dtCustomers(V.Local.I).Router!fieldval,v.Local.ssql)
+		f.ODBC.connection!conx.executeandreturn(v.Local.ssql,v.Local.sretPH)
+		f.Intrinsic.string.split(v.Local.sretPH,"#$#",v.Local.sretPH)
+		
+		f.Intrinsic.control.if(v.global.lThreshold,<,v.Local.sretPH.ubound)
+			f.Intrinsic.ui.msgbox("The Part you tried loading exceeds your routing threshold.  Please go to QRE Config to update before loading this part again.  Routine will now exit.")
+			f.Intrinsic.ui.closewaitdialog
+			f.Intrinsic.control.exitsub
+		f.Intrinsic.control.endif
+		f.Intrinsic.control.for(v.Local.p,0,v.Local.sretPH.ubound,1)
+			f.Intrinsic.Math.Add(v.Global.lcount,1,v.Global.lcount)
+			f.Intrinsic.string.split(v.Local.sRetPH(v.Local.p),"*!*",v.Local.sSplit)
+			f.Intrinsic.control.callsub(loadvals,"iVal",v.Local.p,"lHID",v.Local.sSplit(0),"sCopy",0,"RouterNum",v.Local.sSplit(1).trim)
+		f.Intrinsic.control.next(v.Local.p)
+		
+		f.Intrinsic.Control.CallSub(initCalc,"sQTY",v.datatable.dtCustomers(v.Local.i).Quantity!Fieldval,"CheckPart",0)
+		f.Intrinsic.Control.CallSub(quickprice)
+		f.Intrinsic.Control.CallSub(reportCalc,"sFlag","N","sQTY",v.datatable.dtCustomers(v.Local.i).Quantity!Fieldval)
+		
+		f.Intrinsic.Control.If(v.DataTable.dtPBAll.Exists)
+		f.Intrinsic.Control.Else
+			f.Data.DataTable.Clone("dtPB","dtPBAll",1)
+		f.Intrinsic.Control.EndIf
+		F.Data.DataTable.Merge("dtPB","dtPBAll",true,1)
+		
+		f.Intrinsic.Control.CallSub(clearSub)
+	f.Intrinsic.Control.EndIf
+f.Intrinsic.Control.Next(v.Local.i)
+
+f.Data.DataTable.DeleteRow("dtPB")
+f.Data.DataTable.AcceptChanges("dtPB")
+f.Data.DataTable.Merge("dtPBAll","dtPB",true,1)
+'Update the customer if it is multiple in the datatable (bad data written from data conversion)
+f.Intrinsic.Control.For(v.Local.j,0,v.DataTable.dtPB.RowCount--,1)
+	f.Data.DataTable.SetValue("dtPB",v.Local.j,"rCustomer",v.Screen.frmQuote!txtCustomer.text)
+f.Intrinsic.Control.Next(v.Local.j)
+
+F.Intrinsic.Control.CallSub(quoteUpload,"uploadType",v.Screen.frmQuote!optSales.Value)
+f.Data.DataTable.Close("dtPBAll")
+f.Data.DataTable.Close("dtPB")
+f.ODBC.Connection!CONX.Close
+f.Intrinsic.UI.CloseWaitDialog
+f.Intrinsic.Control.End
+Program.Sub.cmdProcess_Click.End
+
+Program.Sub.frmQuote_UnLoad.Start
+f.ODBC.connection!conx.Close
+f.Intrinsic.Control.End
+Program.Sub.frmQuote_UnLoad.End
+
+Program.Sub.gsgcParts_CellValueChanged.Start
+f.Intrinsic.Control.If(v.Args.column,=,"Quantity","or",v.Args.column,=,"Position")
+	f.Data.DataTable.SetValue("dtCustomers",v.Args.rowindex,"Selected",true)
+	'Need to add a datatable committ command
+f.Intrinsic.Control.EndIf
+f.Data.DataTable.acceptchanges("dtCustomers")
+Program.Sub.gsgcParts_CellValueChanged.End
+
+Program.Sub.gsgcParts_RowCellClick.Start
+f.Intrinsic.Control.Try
+	V.Local.ICURRROW.Declare(long)
+	v.Local.ICURRROW.Set(v.Args.rowindex)
+	f.Intrinsic.Control.If(v.Args.column,=,"UP")
+		f.Intrinsic.Control.If(v.Args.rowindex,<>,0)
+			F.Data.DataTable.moverow("dtCustomers",v.Local.ICURRROW,v.Local.ICURRROW.--)
+		f.Intrinsic.Control.EndIf
+	f.Intrinsic.Control.Elseif(v.Args.column,=,"DOWN")
+		F.Data.DataTable.moverow("dtCustomers",v.Local.ICURRROW,v.Local.ICURRROW.++)
+	f.Intrinsic.Control.EndIf
+	f.Data.DataTable.acceptchanges("dtCustomers")
+f.Intrinsic.Control.Catch
+f.Intrinsic.Control.EndTry
+Program.Sub.gsgcParts_RowCellClick.End
+
+Program.Sub.cmdRefresh_Click.Start
+v.Local.scust.Declare(string)
+v.Local.sCust.Set(v.Screen.frmQuote!txtCustomer.text)
+v.Local.sOrder.Declare(string)
+v.Local.sOrder.Set(v.Screen.frmQuote!lblPartSort.Caption)
+v.Local.ssort.Declare(string)
+
+f.Intrinsic.Control.If(v.Local.sOrder.ucase,=,"ASC")
+	gui.frmQuote.lblDateSort.Caption("DESC")
+	v.Local.sSort.Set("date_last_updated Asc")
+f.Intrinsic.Control.Else
+	gui.frmQuote.lblDateSort.Caption("ASC")
+	v.Local.sSort.Set("date_last_updated Desc")
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.CallSub(setTable,"sSort",v.Local.ssort,"sCust",v.Local.sCust)
+Program.Sub.cmdRefresh_Click.End
+
+Program.Sub.cmdPartSort_Click.Start
+v.Local.sOrder.Declare(string)
+v.Local.sOrder.Set(v.Screen.frmQuote!lblPartSort.Caption)
+v.Local.ssort.Declare(string)
+
+f.Intrinsic.Control.If(v.Local.sOrder.ucase,=,"ASC")
+	gui.frmQuote.lblPartSort.Caption("DESC")
+	v.Local.sSort.Set("Part Asc")
+f.Intrinsic.Control.Else
+	gui.frmQuote.lblPartSort.Caption("ASC")
+	v.Local.sSort.Set("Part Desc")
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.CallSub(SetTable,"sSort",v.Local.ssort,"sCust",v.Screen.frmQuote!txtCustomer.text)
+Program.Sub.cmdPartSort_Click.End
+
+Program.Sub.cmdDateSort_Click.Start
+v.Local.sOrder.Declare(string)
+v.Local.sOrder.Set(v.Screen.frmQuote!lblDateSort.Caption)
+v.Local.ssort.Declare(string)
+
+f.Intrinsic.Control.If(v.Local.sOrder.ucase,=,"ASC")
+	gui.frmQuote.lblDateSort.Caption("DESC")
+	v.Local.sSort.Set("date_last_updated Asc")
+f.Intrinsic.Control.Else
+	gui.frmQuote.lblDateSort.Caption("ASC")
+	v.Local.sSort.Set("date_last_updated Desc")
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.CallSub(SetTable,"sSort",v.Local.sSort,"sCust",v.Screen.frmQuote!txtCustomer.text)
+Program.Sub.cmdDateSort_Click.End
+
+Program.Sub.cmdDescriptionSort_Click.Start
+v.Local.sOrder.Declare(string)
+v.Local.sOrder.Set(v.Screen.frmQuote!lblDescSort.Caption)
+v.Local.sSort.Declare(string)
+
+f.Intrinsic.Control.If(v.Local.sOrder.ucase,=,"ASC")
+	gui.frmQuote.lblDescSort.Caption("DESC")
+	v.Local.sSort.Set("Description Asc")
+f.Intrinsic.Control.Else
+	gui.frmQuote.lblDescSort.Caption("ASC")
+	v.Local.sSort.Set("Description Desc")
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.CallSub(SetTable,"sSort",v.Local.sSort,"sCust",v.Screen.frmQuote!txtCustomer.text)
+
+Program.Sub.cmdDescriptionSort_Click.End
+
+Program.Sub.cmdPositionSort_Click.Start
+v.Local.sOrder.Declare(string)
+v.Local.sOrder.Set(v.Screen.frmQuote!lblPositionSort.Caption)
+v.Local.sSort.Declare(string)
+
+f.Intrinsic.Control.If(v.Local.sOrder.ucase,=,"ASC")
+	gui.frmQuote.lblPositionSort.Caption("DESC")
+	v.Local.sSort.Set("Description Asc")
+f.Intrinsic.Control.Else
+	gui.frmQuote.lblPositionSort.Caption("ASC")
+	v.Local.sSort.Set("Description Desc")
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.CallSub(SetTable,"sSort",v.Local.sSort,"sCust",v.Screen.frmQuote!txtCustomer.text)
+Program.Sub.cmdPositionSort_Click.End
+
+Program.Sub.SetContextMenus.Start
+gui.frmQuote..ContextMenuCreate("ctxAll")
+gui.frmQuote.gsgcParts.contextmenuattach("ctxAll")
+gui.frmQuote..ContextMenuAddItem("ctxAll","Export",0,"Export")
+Gui.frmQuote..ContextMenuSetItemEventHandler("ctxAll","Export","ExportGrid")
+
+gui.frmQuote..ContextMenuAddItem("ctxAll","Export2",0,"Export Price")
+Gui.frmQuote..ContextMenuSetItemEventHandler("ctxAll","Export2","ExportPrice")
+Program.Sub.SetContextMenus.End
+
+Program.Sub.ExportGrid.Start
+f.Intrinsic.Control.Try
+	V.Local.sFileExport.Declare(string)
+	V.Local.bExcel.Declare(boolean)
+	V.Local.bFileLocked.Declare(boolean)
+	V.Local.sMsg.Declare(string)
+	v.Local.sDate.Declare(string)
+	f.Intrinsic.String.Format(V.Ambient.Now,"YYYYMMDDHHNNSS",v.Local.sDate)
+	F.Automation.MSExcel.CheckPresence(V.Local.bExcel)
+	f.Intrinsic.Control.If(v.Local.bExcel)
+		F.Intrinsic.String.Build("{0}\GAB_4486_QRE_MULTI_QUOTE_{1}_Export.xlsx",V.Caller.LocalGssTempDir,v.Screen.frmQuote!txtCustomer.text,V.Local.sFileExport)
+		F.Intrinsic.File.IsFileLocked(V.Local.sFileExport,V.Local.bFileLocked)
+		F.Intrinsic.Control.If(V.Local.bFileLocked)
+			F.Intrinsic.String.Build("File is already open. Please close and export again.{0}File: {1}",V.Ambient.NewLine,V.Local.sFileExport,V.Local.sMsg)
+			F.Intrinsic.UI.Msgbox(V.Local.sMsg,"File In Use")
+		F.Intrinsic.Control.Else
+			gui.frmQuote.gsgcParts.Export(V.Local.sFileExport,"xlsx")
+			F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileExport,"","",1)
+		F.Intrinsic.Control.EndIf
+	f.Intrinsic.Control.Else
+		f.Intrinsic.UI.Msgbox("Excel Not Found.")
+	f.Intrinsic.Control.EndIf
+f.Intrinsic.Control.Catch
+	f.Intrinsic.UI.Msgbox(v.Ambient.ErrorDescription)
+	f.ODBC.Connection!CONX.Close
+	f.Intrinsic.Control.End
+f.Intrinsic.Control.EndTry
+Program.Sub.ExportGrid.End
+
+Program.Sub.ExportPrice.Start
+f.Intrinsic.Control.Try
+	f.Intrinsic.UI.InvokeWaitDialog("Generating data, please wait.")
+	v.Local.i.Declare(long)
+	v.Local.j.Declare(long)
+	V.Local.sFileExport.Declare(string)
+	V.Local.bExcel.Declare(boolean)
+	V.Local.bFileLocked.Declare(boolean)
+	V.Local.sMsg.Declare(string)
+	v.Local.sDate.Declare(string)
+	f.Intrinsic.Control.For(v.Local.i,0,v.DataTable.dtCustomers.RowCount--,1)
+		f.Intrinsic.Control.If(v.datatable.dtCustomers(v.Local.i).Selected!FieldVal,=,true)		
+			'WORKS FOR ONE QUANTITY, BUT NOT MULTIPLES, WHY?
+			f.Intrinsic.Control.CallSub(createPreBuilt,"sMyPart",v.datatable.dtCustomers(v.Local.i).Part!fieldval,"sMyRev",v.datatable.dtCustomers(v.Local.i).Revision!fieldval,"sMyQTY",v.datatable.dtCustomers(v.Local.i).Quantity!Fieldval)
+			f.Intrinsic.Control.CallSub(quickprice)
+			f.Intrinsic.Control.CallSub(reportCalc,"sFlag","N","sQTY",v.datatable.dtCustomers(v.Local.i).Quantity!Fieldval)
+			f.Intrinsic.Control.If(v.DataTable.dtPBAll.Exists)
+			f.Intrinsic.Control.Else
+				f.Data.DataTable.Clone("dtPB","dtPBAll",1)
+			f.Intrinsic.Control.EndIf
+			F.Data.DataTable.Merge("dtPB","dtPBAll",true,1)
+		f.Intrinsic.Control.EndIf
+	f.Intrinsic.Control.Next(v.Local.i)
+	'Get the price break data merged into table
+	f.Data.DataTable.DeleteRow("dtPB")
+	f.Data.DataTable.AcceptChanges("dtPB")
+	f.Data.DataTable.Merge("dtPBAll","dtPB",true,1)
+	'Update the customer if it is multiple in the datatable (bad data written from data conversion)
+	f.Intrinsic.Control.For(v.Local.j,0,v.DataTable.dtPB.RowCount--,1)
+		f.Data.DataTable.SetValue("dtPB",v.Local.j,"rCustomer",v.Screen.frmQuote!txtCustomer.text)
+	f.Intrinsic.Control.Next(v.Local.j)
+	f.Data.DataView.Create("dtPB","dvPB")
+	f.Data.DataView.ToDataTableDistinct("dtPB","dvPB","dtSum","PriceBreak*!*Part*!*Rev*!*UnitPrice*!*rFinish*!*rCustomer*!*rDescription*!*MATERIAL_PART0")
+	gui.frmQuote.gsgcPBAll.DataSource("dtSum")
+	gui.frmQuote.gsgcPBAll.AddGridviewFromDatatable("gv","dtSum")
+	f.Intrinsic.String.Format(V.Ambient.Now,"YYYYMMDDHHNNSS",v.Local.sDate)
+	F.Automation.MSExcel.CheckPresence(V.Local.bExcel)
+	f.Intrinsic.Control.If(v.Local.bExcel)
+		F.Intrinsic.String.Build("{0}\GAB_4486_QRE_MULTI_QUOTE_WITH_PRICE_{1}_Export.xlsx",V.Caller.LocalGssTempDir,v.Screen.frmQuote!txtCustomer.text,V.Local.sFileExport)
+		F.Intrinsic.File.IsFileLocked(V.Local.sFileExport,V.Local.bFileLocked)
+		F.Intrinsic.Control.If(V.Local.bFileLocked)
+			F.Intrinsic.String.Build("File is already open. Please close and export again.{0}File: {1}",V.Ambient.NewLine,V.Local.sFileExport,V.Local.sMsg)
+			F.Intrinsic.UI.Msgbox(V.Local.sMsg,"File In Use")
+		F.Intrinsic.Control.Else
+			gui.frmQuote.gsgcPBAll.Export(V.Local.sFileExport,"xlsx")
+			F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileExport,"","",1)
+		F.Intrinsic.Control.EndIf
+	f.Intrinsic.Control.Else
+		f.Intrinsic.UI.Msgbox("Excel Not Found.")
+	f.Intrinsic.Control.EndIf
+	f.Intrinsic.UI.CloseWaitDialog
+	f.ODBC.Connection!CONX.Close
+	f.Intrinsic.Control.End
+f.Intrinsic.Control.Catch
+	f.Intrinsic.UI.Msgbox(v.Ambient.ErrorDescription)
+	f.ODBC.Connection!CONX.Close
+	f.Intrinsic.Control.End
+f.Intrinsic.Control.EndTry
+Program.Sub.ExportPrice.End
+
+Program.Sub.cmdSelectAll_Click.Start
+v.Local.i.Declare(long)
+f.Intrinsic.Control.For(v.Local.i,0,v.DataTable.dtCustomers.RowCount--,1)
+	f.Data.DataTable.SetValue("dtCustomers",v.Local.i,"Selected",True)
+f.Intrinsic.Control.Next(v.Local.i)
+Program.Sub.cmdSelectAll_Click.End
+
+Program.Sub.cmdDeselect_Click.Start
+v.Local.i.Declare(long)
+f.Intrinsic.Control.For(v.Local.i,0,v.DataTable.dtCustomers.RowCount--,1)
+	f.Data.DataTable.SetValue("dtCustomers",v.Local.i,"Selected",False)
+f.Intrinsic.Control.Next(v.Local.i)
+Program.Sub.cmdDeselect_Click.End
+
+Program.Sub.Comments.Start
+${$0$}$$}$SUPERVSR$}$19/02/2017 2:49:54 p.m.$}$False
+Program.Sub.Comments.End
