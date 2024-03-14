@@ -1,0 +1,632 @@
+Program.Sub.ScreenSU.Start
+Gui.frmQREConfig..create
+Gui.frmQREConfig..caption("Quick Routing and Estimating Configuration")
+Gui.frmQREConfig..size(20070,11565)
+Gui.frmQREConfig..minx(0)
+Gui.frmQREConfig..miny(0)
+Gui.frmQREConfig..position(45,45)
+Gui.frmQREConfig..event(UnLoad,frmQREConfig_UnLoad)
+Gui.frmQREConfig..forecolor(0)
+Gui.frmQREConfig..BackColor(-2147483633)
+Gui.frmQREConfig..mousepointer(0)
+Gui.frmQREConfig.gsGCWorkcentre.create(gsgridcontrol)
+Gui.frmQREConfig.gsGCWorkcentre.size(19410,8370)
+Gui.frmQREConfig.gsGCWorkcentre.position(210,1980)
+Gui.frmQREConfig.cmdSave.create(button)
+Gui.frmQREConfig.cmdSave.caption("Save")
+Gui.frmQREConfig.cmdSave.size(1395,375)
+Gui.frmQREConfig.cmdSave.position(240,10515)
+Gui.frmQREConfig.cmdSave.event(Click,cmdsave_click)
+Gui.frmQREConfig.cmdSave.defaultvalue("")
+Gui.frmQREConfig.txtRtrCount.Create(TextBox,"",False,510,300,0,16845,1215,True,0,"Arial",8,-2147483643,1)
+Gui.frmQREConfig.txtSR.Create(TextBox,"F",False,435,300,0,11610,705,True,0,"Arial",8,-2147483643,1)
+Gui.frmQREConfig.lbl1.Create(Label,"Default Source Code",False,1710,255,0,12180,810,True,0,"Arial",8,-2147483633,0)
+Gui.frmQREConfig.txtDocumentControl.Create(TextBox,"",True,3750,300,0,15915,300,True,0,"Arial",8,-2147483643,1)
+Gui.frmQREConfig.lbl5.Create(Label,"# of Routers Open",False,1560,255,0,16845,975,True,0,"Arial",8,-2147483633,0)
+Gui.frmQREConfig.txtWCCode.Create(TextBox,"",True,1215,300,0,255,1500,True,0,"Arial",8,-2147483643,1)
+Gui.frmQREConfig.cmdWCBrowse.Create(Button)
+Gui.frmQREConfig.cmdWCBrowse.Size(495,375)
+Gui.frmQREConfig.cmdWCBrowse.Position(1485,1455)
+Gui.frmQREConfig.cmdWCBrowse.Caption("^")
+Gui.frmQREConfig.cmdWCBrowse.Event(Click,cmdWCBrowse_Click)
+Gui.frmQREConfig.txtDescription.Create(TextBox,"",True,1830,300,0,2025,1500,True,0,"Arial",8,-2147483643,1)
+Gui.frmQREConfig.txtLabourUnit1.Create(TextBox,"",True,1215,300,0,3915,1500,True,0,"Arial",8,-2147483643,1)
+Gui.frmQREConfig.txtLabourUnit2.Create(TextBox,"",True,1215,300,0,5205,1500,True,0,"Arial",8,-2147483643,1)
+Gui.frmQREConfig.txtbilling.Create(TextBox,"",True,1215,300,0,6480,1500,True,0,"Arial",8,-2147483643,1)
+Gui.frmQREConfig.txtCostUnit.Create(TextBox,"",True,480,300,0,7755,1500,False,0,"Arial",8,-2147483643,1)
+Gui.frmQREConfig.cmdCostUnit.Create(Button)
+Gui.frmQREConfig.cmdCostUnit.Size(600,375)
+Gui.frmQREConfig.cmdCostUnit.Position(8265,1455)
+Gui.frmQREConfig.cmdCostUnit.Caption("^")
+Gui.frmQREConfig.cmdCostUnit.Event(Click,cmdCostUnit_Click)
+Gui.frmQREConfig.ddlTimeType.Create(DropDownList)
+Gui.frmQREConfig.ddlTimeType.Size(510,330)
+Gui.frmQREConfig.ddlTimeType.Position(8940,1470)
+Gui.frmQREConfig.txtSetupTime.Create(TextBox,"",True,795,300,0,9615,1500,True,0,"Arial",8,-2147483643,1)
+Gui.frmQREConfig.txtSetupRate.Create(TextBox,"",True,1395,300,0,10635,1500,True,0,"Arial",8,-2147483643,1)
+Gui.frmQREConfig.txtWCOrder.Create(TextBox,"",True,345,300,0,12465,1485,True,0,"Arial",8,-2147483643,1)
+Gui.frmQREConfig.chkShowWC.Create(CheckBox)
+Gui.frmQREConfig.chkShowWC.Size(1305,360)
+Gui.frmQREConfig.chkShowWC.Position(12915,1485)
+Gui.frmQREConfig.chkShowWC.Caption("Show WC?")
+Gui.frmQREConfig.cmdAdd.Create(Button)
+Gui.frmQREConfig.cmdAdd.Size(1320,375)
+Gui.frmQREConfig.cmdAdd.Position(14400,1455)
+Gui.frmQREConfig.cmdAdd.Caption("Add")
+Gui.frmQREConfig.cmdAdd.Event(Click,cmdAdd_Click)
+Gui.frmQREConfig.lbl3.Create(Label,"Workcentre",True,1230,255,0,270,1260,True,0,"Arial",8,-2147483633,0)
+Gui.frmQREConfig.lbl6.Create(Label,"Description",True,1800,255,0,2025,1260,True,0,"Arial",8,-2147483633,0)
+Gui.frmQREConfig.lbl7.Create(Label,"Labour Units",True,2535,255,0,3900,1260,True,2,"Arial",8,-2147483633,0)
+Gui.frmQREConfig.lbl8.Create(Label,"Billing (Cost /hr)",True,1245,255,0,6480,1260,True,0,"Arial",8,-2147483633,0)
+Gui.frmQREConfig.lbl9.Create(Label,"Cost Unit",True,1080,255,0,7770,1260,True,0,"Arial",8,-2147483633,0)
+Gui.frmQREConfig.lbl10.Create(Label,"Setup Time",True,1140,255,0,9600,1275,True,0,"Arial",8,-2147483633,0)
+Gui.frmQREConfig.lbl11.Create(Label,"Setup Rate (cost/hr)",True,1605,255,0,10620,1275,True,0,"Arial",8,-2147483633,0)
+Gui.frmQREConfig.lbl12.Create(Label,"Order",True,510,255,0,12360,1290,True,0,"Arial",8,-2147483633,0)
+Gui.frmQREConfig.lbl13.Create(Label,"WC Display",True,1080,255,0,12915,1275,True,0,"Arial",8,-2147483633,0)
+Gui.frmQREConfig.lblTime.Create(Label,"Time",True,540,255,0,8955,1260,True,0,"Arial",8,-2147483633,0)
+Gui.frmQREConfig.lbl15.Create(Label,"Document Control Path:",True,1935,255,0,15900,75,True,0,"Arial",8,-2147483633,0)
+Gui.frmQREConfig.fraPowder.Create(Frame)
+Gui.frmQREConfig.fraPowder.Size(6180,1080)
+Gui.frmQREConfig.fraPowder.Position(8685,45)
+Gui.frmQREConfig.fraPowder.Caption("Powder Coating Settings")
+Gui.frmQREConfig.lblGap.Create(Label,"Gap",True,975,255,0,90,360,True,0,"Arial",8,-2147483633,0)
+Gui.frmQREConfig.lblGap.Parent("fraPowder")
+Gui.frmQREConfig.txtGap.Create(TextBox,"",True,900,300,0,90,630,True,0,"Arial",8,-2147483643,1)
+Gui.frmQREConfig.txtGap.Parent("fraPowder")
+Gui.frmQREConfig.txtGap.NumericOnly(2)
+Gui.frmQREConfig.txtManPower.Create(TextBox,"",True,1035,300,0,1230,630,True,0,"Arial",8,-2147483643,1)
+Gui.frmQREConfig.txtManPower.Parent("fraPowder")
+Gui.frmQREConfig.lblManPower.Create(Label,"Man Power",True,1320,255,0,1230,360,True,0,"Arial",8,-2147483633,0)
+Gui.frmQREConfig.lblManPower.Parent("fraPowder")
+Gui.frmQREConfig.lblPowLab.Create(Label,"Labour Rate ($/hr)",True,1920,255,0,2535,360,True,0,"Arial",8,-2147483633,0)
+Gui.frmQREConfig.lblPowLab.Parent("fraPowder")
+Gui.frmQREConfig.txtPowLabour.Create(TextBox,"",True,1215,300,0,2535,630,True,0,"Arial",8,-2147483643,1)
+Gui.frmQREConfig.txtPowLabour.Parent("fraPowder")
+Gui.frmQREConfig.lblPowSetCost.Create(Label,"Setup Cost (%)",True,1935,255,0,4605,360,True,0,"Arial",8,-2147483633,0)
+Gui.frmQREConfig.lblPowSetCost.Parent("fraPowder")
+Gui.frmQREConfig.txtPowSetupCost.Create(TextBox,"",True,1215,300,0,4605,630,True,0,"Arial",8,-2147483643,1)
+Gui.frmQREConfig.txtPowSetupCost.Parent("fraPowder")
+Gui.frmQREConfig.fraDef.Create(Frame)
+Gui.frmQREConfig.fraDef.Size(7815,1080)
+Gui.frmQREConfig.fraDef.Position(360,45)
+Gui.frmQREConfig.fraDef.Caption("Default Values")
+Gui.frmQREConfig.lbl16.Create(Label,"UM",True,600,255,0,210,300,True,0,"Arial",8,-2147483633,0)
+Gui.frmQREConfig.lbl16.Parent("fraDef")
+Gui.frmQREConfig.txtUM.Create(TextBox,"",True,465,300,0,255,510,True,0,"Arial",8,-2147483643,1)
+Gui.frmQREConfig.txtUM.Parent("fraDef")
+Gui.frmQREConfig.cmdUM.Create(Button)
+Gui.frmQREConfig.cmdUM.Size(555,375)
+Gui.frmQREConfig.cmdUM.Position(840,450)
+Gui.frmQREConfig.cmdUM.Caption("^")
+Gui.frmQREConfig.cmdUM.DefaultValue("^")
+Gui.frmQREConfig.cmdUM.Event(Click,cmdUM_Click)
+Gui.frmQREConfig.cmdUM.Parent("fraDef")
+Gui.frmQREConfig.txtPL.Create(TextBox,"",True,450,300,0,1575,510,True,0,"Arial",8,-2147483643,1)
+Gui.frmQREConfig.txtPL.Parent("fraDef")
+Gui.frmQREConfig.lbl14.Create(Label,"PL",True,615,255,0,1545,285,True,0,"Arial",8,-2147483633,0)
+Gui.frmQREConfig.lbl14.Parent("fraDef")
+Gui.frmQREConfig.cmdDefaultPL.Create(Button)
+Gui.frmQREConfig.cmdDefaultPL.Size(540,375)
+Gui.frmQREConfig.cmdDefaultPL.Position(2145,510)
+Gui.frmQREConfig.cmdDefaultPL.Caption("^")
+Gui.frmQREConfig.cmdDefaultPL.Event(Click,cmdDefaultPL_Click)
+Gui.frmQREConfig.cmdDefaultPL.Parent("fraDef")
+Gui.frmQREConfig.txtThreshhold.Create(TextBox,"",True,495,300,0,3135,555,True,0,"Arial",8,-2147483643,1)
+Gui.frmQREConfig.txtThreshhold.NumericOnly(True)
+Gui.frmQREConfig.txtThreshhold.Parent("fraDef")
+Gui.frmQREConfig.lbl2.Create(Label,"Routing Threshold",True,1935,255,0,3120,315,True,0,"Arial",8,-2147483633,0)
+Gui.frmQREConfig.lbl2.Parent("fraDef")
+Gui.frmQREConfig.txtDefaultPacking.Create(TextBox,"",True,375,300,0,5760,555,True,0,"Arial",8,-2147483643,1)
+Gui.frmQREConfig.txtDefaultPacking.NumericOnly(True)
+Gui.frmQREConfig.txtDefaultPacking.Parent("fraDef")
+Gui.frmQREConfig.lbl4.Create(Label,"Default Packing Cost",True,1935,255,0,5730,330,True,0,"Arial",8,-2147483633,0)
+Gui.frmQREConfig.lbl4.Parent("fraDef")
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+F.Intrinsic.UI.SetBrowserHotTypeAhead(TRUE)
+
+F.ODBC.CONNECTION!CONX.OPENCONNECTION(V.AMBIENT.PDSN,V.AMBIENT.PUSER,V.AMBIENT.PPASS)
+f.Intrinsic.Control.CallSub(load_form)
+gui.frmQREConfig.ddlTimeType.AddItem("S")
+gui.frmQREConfig.ddlTimeType.AddItem("M")
+gui.frmQREConfig.ddlTimeType.AddItem("H")
+Gui.frmQREConfig..Show
+
+Program.Sub.Main.End
+
+Program.Sub.load_form.Start
+V.Local.SVALS.Declare(string)
+v.Local.sret.Declare(string)
+v.Local.ssql.Declare(string)
+
+'Doc control
+V.Local.SSQL.Set("SELECT DISTINCT DOC_CONTROL_PATH FROM GAB_4486_QRE_CONFIG")
+f.ODBC.Connection!CONX.ExecuteAndReturn(v.Local.ssql,v.Local.sret)
+gui.frmQREConfig.txtDocumentControl.text(v.Local.sret)
+
+'Man Power
+V.Local.SSQL.Set("SELECT DISTINCT MANPOWER FROM GAB_4486_QRE_CONFIG")
+F.Intrinsic.String.Build(v.Local.ssql,v.Caller.User,v.Local.ssql)
+f.ODBC.Connection!CONX.ExecuteAndReturn(v.Local.ssql,v.Local.sret)
+gui.frmQREConfig.txtManPower.text(v.Local.sret)
+
+'Powder Labour Rate
+V.Local.SSQL.Set("SELECT DISTINCT POW_LAB_RATE FROM GAB_4486_QRE_CONFIG")
+F.Intrinsic.String.Build(v.Local.ssql,v.Caller.User,v.Local.ssql)
+f.ODBC.Connection!CONX.ExecuteAndReturn(v.Local.ssql,v.Local.sret)
+gui.frmQREConfig.txtPowLabour.text(v.Local.sret)
+
+'Gap Between
+V.Local.SSQL.Set("SELECT DISTINCT GAP FROM GAB_4486_QRE_CONFIG")
+F.Intrinsic.String.Build(v.Local.ssql,v.Caller.User,v.Local.ssql)
+f.ODBC.Connection!CONX.ExecuteAndReturn(v.Local.ssql,v.Local.sret)
+gui.frmQREConfig.txtGap.text(v.Local.sret)
+
+'Setup Cost Percent
+V.Local.SSQL.Set("SELECT DISTINCT POW_SET_COST FROM GAB_4486_QRE_CONFIG")
+F.Intrinsic.String.Build(v.Local.ssql,v.Caller.User,v.Local.ssql)
+f.ODBC.Connection!CONX.ExecuteAndReturn(v.Local.ssql,v.Local.sret)
+gui.frmQREConfig.txtPowSetupCost.text(v.Local.sret)
+
+'Product Line
+V.Local.SSQL.Set("SELECT DISTINCT DEFAULT_PL FROM GAB_4486_QRE_CONFIG")
+F.Intrinsic.String.Build(v.Local.ssql,v.Caller.User,v.Local.ssql)
+f.ODBC.Connection!CONX.ExecuteAndReturn(v.Local.ssql,v.Local.sret)
+gui.frmQREConfig.txtPL.text(v.Local.sret)
+
+V.Local.SSQL.Set("SELECT DISTINCT DEFAULT_UM FROM GAB_4486_QRE_CONFIG")
+F.Intrinsic.String.Build(v.Local.ssql,v.Caller.User,v.Local.ssql)
+f.ODBC.Connection!CONX.ExecuteAndReturn(v.Local.ssql,v.Local.sret)
+gui.frmQREConfig.txtUM.text(v.Local.sret)
+
+V.Local.SSQL.Set("SELECT DISTINCT DEFAULT_SRC FROM GAB_4486_QRE_CONFIG")
+F.Intrinsic.String.Build(v.Local.ssql,v.Caller.User,v.Local.ssql)
+f.ODBC.Connection!CONX.ExecuteAndReturn(v.Local.ssql,v.Local.sret)
+gui.frmQREConfig.txtSR.text(v.Local.sret)
+
+V.Local.SSQL.Set("SELECT DISTINCT THRESHOLD FROM GAB_4486_QRE_CONFIG")
+F.Intrinsic.String.Build(v.Local.ssql,v.Caller.User,v.Local.ssql)
+f.ODBC.Connection!CONX.ExecuteAndReturn(v.Local.ssql,v.Local.sret)
+gui.frmQREConfig.txtThreshhold.text(v.Local.sret)
+
+
+V.Local.SSQL.Set("SELECT DISTINCT DEFAULT_PACKING FROM GAB_4486_QRE_CONFIG")
+F.Intrinsic.String.Build(v.Local.ssql,v.Caller.User,v.Local.ssql)
+f.ODBC.Connection!CONX.ExecuteAndReturn(v.Local.ssql,v.Local.sret)
+gui.frmQREConfig.txtDefaultPacking.text(v.Local.sret)
+
+V.Local.SSQL.Set("SELECT DISTINCT DEFAULT_RTR_COUNT FROM GAB_4486_QRE_CONFIG")
+F.Intrinsic.String.Build(v.Local.ssql,v.Caller.User,v.Local.ssql)
+f.ODBC.Connection!CONX.ExecuteAndReturn(v.Local.ssql,v.Local.sret)
+gui.frmQREConfig.txtRtrCount.text(v.Local.sret)
+
+
+V.Local.ssql.SET("SELECT * FROM GAB_4486_QRE_CONFIG ORDER BY WORKCENTRE")
+F.Intrinsic.String.Build(V.Local.ssql,v.Caller.user,v.Local.ssql)
+f.Data.DataTable.CreateFromSQL("dtWC","conx",v.Local.ssql,true)
+
+gui.frmQREConfig.gsGCWorkcentre.DataSource("dtWC")  
+gui.frmQREConfig.gsGCWorkcentre.AddGridviewFromDatatable("GV_WORKCENTRES","dtWC")
+GUI.frmQREConfig.gsGCWorkcentre.SetGridviewProperty("GV_WORKCENTRES","readonly","false")
+gui.frmQREConfig.gsGCWorkcentre.SetColumnProperty("GV_WORKCENTRES","USER_4","ReadOnly","False")
+gui.frmQREConfig.gsGCWorkcentre.SetColumnProperty("GV_WORKCENTRES","USER_4","Visible","True")
+gui.frmQREConfig.gsGCWorkcentre.SetColumnProperty("GV_WORKCENTRES","DEFAULT_RTR_COUNT","Visible","False")
+gui.frmQREConfig.gsGCWorkcentre.SetColumnProperty("GV_WORKCENTRES","THRESHOLD","Visible","False")
+gui.frmQREConfig.gsGCWorkcentre.SetColumnProperty("GV_WORKCENTRES","DEFAULT_UM","Visible","False")
+gui.frmQREConfig.gsGCWorkcentre.SetColumnProperty("GV_WORKCENTRES","DEFAULT_PL","Visible","False")
+gui.frmQREConfig.gsGCWorkcentre.SetColumnProperty("GV_WORKCENTRES","DEFAULT_SRC","Visible","False")
+gui.frmQREConfig.gsGCWorkcentre.SetColumnProperty("GV_WORKCENTRES","THRESHOLD","Visible","False")
+gui.frmQREConfig.gsGCWorkcentre.SetColumnProperty("GV_WORKCENTRES","DOC_CONTROL_PATH","Visible","False")
+gui.frmQREConfig.gsGCWorkcentre.SetColumnProperty("GV_WORKCENTRES","INCREMENTS","Visible","False")
+gui.frmQREConfig.gsGCWorkcentre.SetColumnProperty("GV_WORKCENTRES","DEFAULT_PACKING","Visible","False")
+gui.frmQREConfig.gsGCWorkcentre.SetColumnProperty("GV_WORKCENTRES","WORKCENTRES_ORDER","Caption","Order")
+gui.frmQREConfig.gsGCWorkcentre.SetColumnProperty("GV_WORKCENTRES","WORKCENTRES_DISPLAY","Caption","Display")
+gui.frmQREConfig.gsGCWorkcentre.SetColumnProperty("GV_WORKCENTRES","WC_DESCRIPTION","Caption","Description")
+gui.frmQREConfig.gsGCWorkcentre.SetColumnProperty("GV_WORKCENTRES","LABOUR_UNIT_DESC1","Caption","Lab. Unit")
+gui.frmQREConfig.gsGCWorkcentre.SetColumnProperty("GV_WORKCENTRES","LABOUR_UNIT_DESC2","Caption","Lab. Units")
+gui.frmQREConfig.gsGCWorkcentre.SetColumnProperty("GV_WORKCENTRES","DEFAULT_RUN_RATE","Caption","Cost/Hour (Bill)")
+gui.frmQREConfig.gsGCWorkcentre.SetColumnProperty("GV_WORKCENTRES","DEFAULT_RUN_TYPE","Caption","Type")
+gui.frmQREConfig.gsGCWorkcentre.SetColumnProperty("GV_WORKCENTRES","DEFAULT_SETUP_TIME","Caption","Setup Time (Min.)")
+gui.frmQREConfig.gsGCWorkcentre.SetColumnProperty("GV_WORKCENTRES","DEFAULT_SETUP_RATE","Caption","Setup Rate")
+gui.frmQREConfig.gsGCWorkcentre.SetColumnProperty("GV_WORKCENTRES","COST_UNIT","Caption","Cost Unit")
+GUI.frmQREConfig.gsGCWorkcentre.SetGridviewProperty("GV_WORKCENTRES","AllowDeleteRows","true")
+gui.frmQREConfig.gsGCWorkcentre.anchor(7)
+gui.frmQREConfig.gsgcCustomers.anchor(15)
+GUI.frmQREConfig.cmdSave.ANCHOR(6)
+
+
+Program.Sub.load_form.End
+
+Program.Sub.gsGCWorkcentre_rowcellclick.Start
+f.Intrinsic.Control.If(v.Args.column,=,"OP Code")
+	V.Local.sRet.Declare(String)
+	V.Local.sTitles.Declare(String)
+	V.Local.iWidths.Declare(String)
+	V.Local.stemp.Declare(String)
+	
+	F.intrinsic.string.split("Workcentre*!*Operation*!*Description","*!*",Variable.local.sTitles)
+	F.intrinsic.string.split("2000*!*3000*!*3000","*!*",Variable.local.iWidths)
+	
+	V.Local.ssql.Declare(String)
+	V.Local.ssql.set("SELECT MACHINE, OPERATION, DESCRIPTION FROM V_OP_CODES")
+	
+	F.intrinsic.ui.browser("Select a Op Code",conx,v.Local.ssql,Variable.local.sTitles,Variable.local.iWidths,Variable.local.sRet)
+	
+	F.intrinsic.control.if(Variable.local.sRet,"=","***CANCEL***")
+		'Function.intrinsic.ui.msgbox("No part was selected!")
+	F.intrinsic.control.else
+		F.intrinsic.string.split(Variable.local.sRet,"*!*",Variable.local.sRet)
+		'gui.frmQREConfig.txtPL.Text(v.Local.sRet(0))
+	F.Intrinsic.Control.endif
+f.Intrinsic.Control.EndIf
+Program.Sub.gsGCWorkcentre_rowcellclick.End
+
+Program.Sub.gsGCWorkcentre_cellvaluechanged.Start
+Program.Sub.gsGCWorkcentre_cellvaluechanged.End
+
+Program.Sub.gsGCWorkcentre_mousecellclick.Start
+Program.Sub.gsGCWorkcentre_mousecellclick.End
+
+Program.Sub.cmdsave_click.Start
+F.Intrinsic.Control.TRY
+
+	V.Local.lCount.Declare(long)
+	gui.frmQREConfig.gsGCWorkcentre.GetRowCount("GV_WORKCENTRES",V.Local.lCount)
+	F.Intrinsic.Math.Sub(V.Local.lCount,1,V.Local.lCount)
+	v.Local.ssql.Declare(string)
+	v.Local.sret.Declare(string)
+	v.Local.i.Declare(long)
+	v.Local.scv.Declare(string)
+
+	F.Data.DataTable.SaveToDB("dtWC","conx","GAB_4486_QRE_CONFIG","WCUSER",7)
+		
+	'Product Line
+	v.Local.SSQL.Set("UPDATE GAB_4486_QRE_CONFIG SET DEFAULT_PL='{0}'")
+	F.Intrinsic.String.Build(V.Local.SSQL,v.Screen.frmQREConfig!txtPL.Text,v.Local.SSQL)
+	f.ODBC.Connection!CONX.Execute(v.Local.SSQL)
+	
+	'UM
+	v.Local.SSQL.Set("UPDATE GAB_4486_QRE_CONFIG SET DEFAULT_UM='{0}'")
+	F.Intrinsic.String.Build(V.Local.SSQL,v.Screen.frmQREConfig!txtUM.Text,v.Local.SSQL)
+	f.ODBC.Connection!CONX.Execute(v.Local.SSQL)
+	
+	'Source Code
+	v.Local.SSQL.Set("UPDATE GAB_4486_QRE_CONFIG SET DEFAULT_SRC='{0}'")
+	F.Intrinsic.String.Build(V.Local.SSQL,v.Screen.frmQREConfig!txtSR.Text,v.Local.SSQL)
+	f.ODBC.Connection!CONX.Execute(v.Local.SSQL)
+	
+	v.Local.SSQL.Set("UPDATE GAB_4486_QRE_CONFIG SET THRESHOLD='{0}'")
+	F.Intrinsic.String.Build(V.Local.SSQL,v.Screen.frmQREConfig!txtThreshhold.Text,v.Local.SSQL)
+	f.ODBC.Connection!CONX.Execute(v.Local.SSQL)
+	
+	v.Local.SSQL.Set("UPDATE GAB_4486_QRE_CONFIG SET DEFAULT_PACKING='{0}'")
+	F.Intrinsic.String.Build(V.Local.SSQL,v.Screen.frmQREConfig!txtDefaultPacking.Text,v.Local.SSQL)
+	f.ODBC.Connection!CONX.Execute(v.Local.SSQL)
+	
+	v.Local.SSQL.Set("UPDATE GAB_4486_QRE_CONFIG SET DEFAULT_RTR_COUNT='{0}'")
+	F.Intrinsic.String.Build(V.Local.SSQL,v.Screen.frmQREConfig!txtRtrCount.Text,v.Local.SSQL)
+	f.ODBC.Connection!CONX.Execute(v.Local.SSQL)
+
+	v.Local.SSQL.Set("UPDATE GAB_4486_QRE_CONFIG SET DOC_CONTROL_PATH='{0}'")
+	F.Intrinsic.String.Build(V.Local.SSQL,v.Screen.frmQREConfig!txtDocumentControl.Text,v.Local.SSQL)
+	f.ODBC.Connection!CONX.Execute(v.Local.SSQL)
+	
+	F.Intrinsic.UI.Msgbox("Successfully updated!")
+	f.Intrinsic.Control.End
+
+F.Intrinsic.Control.CATCH
+	F.ODBC.Connection!CONX.Close
+	F.Intrinsic.UI.Msgbox(V.Ambient.ErrorDescription)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.ENDTRY
+
+Program.Sub.cmdsave_click.End
+
+Program.Sub.cmdPL_Click.Start
+V.Local.sRet.Declare(String)
+V.Local.sTitles.Declare(String)
+V.Local.iWidths.Declare(String)
+V.Local.stemp.Declare(String)
+
+F.intrinsic.string.split("PL*!*Description","*!*",Variable.local.sTitles)
+F.intrinsic.string.split("2000*!*3000","*!*",Variable.local.iWidths)
+
+V.Local.ssql.Declare(String)
+V.Local.ssql.set("SELECT PRODUCT_LINE, PRODUCT_LINE_NAME FROM V_PRODUCT_LINE")
+
+F.intrinsic.ui.browser("Select a Product Line",conx,v.Local.ssql,Variable.local.sTitles,Variable.local.iWidths,Variable.local.sRet)
+
+F.intrinsic.control.if(Variable.local.sRet,"=","***CANCEL***")
+  'Function.intrinsic.ui.msgbox("No part was selected!")
+F.intrinsic.control.else
+  F.intrinsic.string.split(Variable.local.sRet,"*!*",Variable.local.sRet)
+  gui.frmQREConfig.txtPL.Text(v.Local.sRet(0))
+F.Intrinsic.Control.endif
+Program.Sub.cmdPL_Click.End
+
+Program.Sub.cmdUM_Click.Start
+V.Local.sRet.Declare(String)
+V.Local.sTitles.Declare(String)
+V.Local.iWidths.Declare(String)
+V.Local.stemp.Declare(String)
+
+F.intrinsic.string.split("UM*!*Description","*!*",Variable.local.sTitles)
+F.intrinsic.string.split("2000*!*3000","*!*",Variable.local.iWidths)
+
+V.Local.ssql.Declare(String)
+V.Local.ssql.set("SELECT code,descr FROM V_UM_CODES")
+
+F.intrinsic.ui.browser("Select a UM Code",conx,v.Local.ssql,Variable.local.sTitles,Variable.local.iWidths,Variable.local.sRet)
+
+F.intrinsic.control.if(Variable.local.sRet,"=","***CANCEL***")
+F.intrinsic.control.else
+  F.intrinsic.string.split(Variable.local.sRet,"*!*",Variable.local.sRet)
+  gui.frmQREConfig.txtUM.Text(v.Local.sRet(0))
+F.Intrinsic.Control.endif
+Program.Sub.cmdUM_Click.End
+
+Program.Sub.frmQREConfig_UnLoad.Start
+f.ODBC.Connection!CONX.Close
+f.Intrinsic.Control.End
+
+Program.Sub.frmQREConfig_UnLoad.End
+
+Program.Sub.cmdAdd_Click.Start
+v.Local.lwcordr.Declare(long)
+v.Local.lwcordr.Set(v.Screen.frmQREConfig!txtWCOrder.Text)
+v.Local.lwcdisp.Declare(long)
+v.Local.lwcdisp.Set(v.Screen.frmQREConfig!chkShowWC.Value)
+v.Local.lIncrements.Declare(long)
+v.Local.lIncrements.Set(100)
+v.Local.sworkcn.Declare(string)
+v.Local.sworkcn.Set(v.Screen.frmQREConfig!txtWCCode.text)
+v.Local.swdescr.Declare(string)
+v.Local.swdescr.Set(v.Screen.frmQREConfig!txtDescription.Text)
+v.Local.sdfltum.Declare(string)
+v.Local.sdfltum.Set(v.Screen.frmQREConfig!txtUM.Text)
+v.Local.sdfltpl.Declare(string)
+v.Local.sdfltpl.Set(v.Screen.frmQREConfig!txtPL.text)
+v.Local.sdfltsr.Declare(string)
+v.Local.sdfltsr.set(v.Screen.frmQREConfig!txtSR.Text)
+v.Local.fSetTim.Declare(float)
+v.Local.fSetTim.Set(v.Screen.frmQREConfig!txtSetupTime.Text)
+v.Local.fRunTim.Declare(float)
+v.Local.fRunTim.set(0)
+v.Local.sRunTyp.Declare(string)
+v.Local.sRunTyp.Set(v.Screen.frmQREConfig!ddlTimeType.text)
+v.Local.slabun1.Declare(string)
+v.Local.slabun1.Set(v.Screen.frmQREConfig!txtLabourUnit1.text)
+v.Local.slabun2.Declare(string)
+v.Local.slabun2.Set(v.Screen.frmQREConfig!txtLabourUnit2.text)
+v.Local.fRunCst.Declare(float)
+v.Local.fSetCst.Declare(float)
+v.Local.fSetCst.Set(v.Screen.frmQREConfig!txtSetupRate.Text)
+v.Local.fRunRat.Declare(float)
+v.Local.fRunRat.Set(v.Screen.frmQREConfig!txtbilling.text)
+v.Local.fSetRat.Declare(float)
+v.Local.fSetRat.Set(v.Screen.frmQREConfig!txtSetupRate.text)
+v.Local.lthresh.Declare(long)
+v.Local.lthresh.Set(v.Screen.frmQREConfig!txtThreshhold.text)
+v.Local.sdocpth.Declare(string)
+v.Local.sdocpth.Set(v.Screen.frmQREConfig!txtDocumentControl.Text)
+v.Local.sCostUM.Declare(string)
+v.Local.sCostUM.Set(v.Screen.frmQREConfig!txtCostUnit.text)
+v.Local.fdfltPK.Declare(float)
+v.Local.fdfltPK.Set(v.Screen.frmQREConfig!txtDefaultPacking.text)
+v.Local.lRtrCnt.Declare(long)
+v.Local.lRtrCnt.Set(v.Screen.frmQREConfig!txtRtrCount.text)
+v.Local.sWCUSER.Declare(string)
+v.Local.bExit.Declare(boolean)
+v.Local.bExit.Set(false)
+
+f.Intrinsic.Control.If(v.Local.sRunTyp.Trim,=,"")
+	v.Local.bExit.Set(true) 
+	gui.frmQREConfig.ddlTimeType.BackColor(v.Color.LtRed)
+	gui.frmQREConfig.ddlTimeType.ForeColor(v.Color.White)
+	gui.frmQREConfig.lblPowSetCostTime.BackColor(v.Color.LtRed)
+f.Intrinsic.Control.Else
+	gui.frmQREConfig.lblPowSetCostTime.BackColor(-2147483633)
+	gui.frmQREConfig.ddlTimeType.BackColor(v.Color.White)
+	gui.frmQREConfig.ddlTimeType.ForeColor(v.Color.Black)
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.If(v.Screen.frmQREConfig!txtSetupTime.text,=,"")
+	v.Local.bExit.Set(true) 
+	gui.frmQREConfig.txtSetupTime.BackColor(v.Color.LtRed)
+	gui.frmQREConfig.txtSetupTime.ForeColor(v.Color.White)
+f.Intrinsic.Control.Else
+	gui.frmQREConfig.txtSetupTime.BackColor(v.Color.White)
+	gui.frmQREConfig.txtSetupTime.ForeColor(v.Color.Black)
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.If(v.Local.sworkcn.Trim,=,"")
+	v.Local.bExit.Set(true) 
+	gui.frmQREConfig.txtWCCode.BackColor(v.Color.LtRed)
+	gui.frmQREConfig.txtWCCode.ForeColor(v.Color.White)
+f.Intrinsic.Control.Else
+	gui.frmQREConfig.txtWCCode.BackColor(v.Color.White)
+	gui.frmQREConfig.txtWCCode.ForeColor(v.Color.Black)
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.If(v.Local.swdescr.Trim,=,"")
+	v.Local.bExit.Set(true) 
+	gui.frmQREConfig.txtDescription.BackColor(v.Color.LtRed)
+	gui.frmQREConfig.txtDescription.ForeColor(v.Color.White)
+f.Intrinsic.Control.Else
+	gui.frmQREConfig.txtDescription.BackColor(v.Color.White)
+	gui.frmQREConfig.txtDescription.ForeColor(v.Color.Black)
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.If(v.Screen.frmQREConfig!txtbilling.text,=,"")
+	v.Local.bExit.Set(true) 
+	gui.frmQREConfig.txtbilling.BackColor(v.Color.LtRed)
+	gui.frmQREConfig.txtbilling.ForeColor(v.Color.White)
+f.Intrinsic.Control.Else
+	gui.frmQREConfig.txtbilling.BackColor(v.Color.White)
+	gui.frmQREConfig.txtbilling.ForeColor(v.Color.Black)
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.If(v.Screen.frmQREConfig!txtCostUnit.text,=,"")
+	v.Local.bExit.Set(true) 
+	gui.frmQREConfig.txtCostUnit.BackColor(v.Color.LtRed)
+	gui.frmQREConfig.txtCostUnit.ForeColor(v.Color.White)
+f.Intrinsic.Control.Else
+	gui.frmQREConfig.txtCostUnit.BackColor(v.Color.White)
+	gui.frmQREConfig.txtCostUnit.ForeColor(v.Color.Black)
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.If(v.Screen.frmQREConfig!txtSetupRate.text,=,"")
+	v.Local.bExit.Set(true) 
+	gui.frmQREConfig.txtSetupRate.BackColor(v.Color.LtRed)
+	gui.frmQREConfig.txtSetupRate.ForeColor(v.Color.White)
+f.Intrinsic.Control.Else
+	gui.frmQREConfig.txtSetupRate.BackColor(v.Color.White)
+	gui.frmQREConfig.txtSetupRate.ForeColor(v.Color.Black)
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.If(v.Local.bExit,=,true)
+	f.Intrinsic.Control.ExitSub
+f.Intrinsic.Control.EndIf
+
+V.Local.sCheck.Declare(string)
+f.Intrinsic.String.Concat(v.Local.sworkcn,v.Caller.User,v.Local.sCheck)
+V.Local.ssql.Declare(string)
+V.Local.sRet.Declare(string)
+f.Intrinsic.String.Concat("SELECT * FROM GAB_4486_QRE_CONFIG WHERE WCUSER='",V.Local.sCheck,"'",V.Local.ssql)
+F.ODBC.Connection!CONX.ExecuteAndReturn(V.Local.SSQL,V.Local.SRET)
+f.Intrinsic.Control.If(v.Local.sRet.Trim,=,"")
+	f.Intrinsic.String.Concat(v.Local.sworkcn,v.Caller.User,v.Local.sWCUSER)
+	F.Data.DataTable.AddRow("dtWC","WORKCENTRES_ORDER", v.Local.lwcordr, "WORKCENTRES_DISPLAY", v.Local.lwcdisp, "INCREMENTS", v.Local.lIncrements,"WORKCENTRE",v.Local.sworkcn,"WC_DESCRIPTION",v.Local.swdescr,"DEFAULT_UM",v.Local.sdfltum,"DEFAULT_PL",v.Local.sdfltpl,"DEFAULT_SRC",v.Local.sdfltsr,"DEFAULT_SETUP_TIME",v.Local.fSetTim,"DEFAULT_RUN_TYPE",v.Local.sRunTyp,"LABOUR_UNIT_DESC1",v.Local.slabun1,"LABOUR_UNIT_DESC2",v.Local.slabun2,"DEFAULT_RUN_RATE",v.Local.fRunRat,"DEFAULT_SETUP_RATE",v.Local.fSetRat,"THRESHOLD",v.Local.lthresh,"DOC_CONTROL_PATH",v.Local.sdocpth,"COST_UNIT",v.Local.sCostUM,"DEFAULT_PACKING",v.Local.fdfltPK,"DEFAULT_RTR_COUNT",v.Local.lRtrCnt,"WCUSER",v.Local.sWCUSER)
+	gui.frmQREConfig.txtWCCode.Text("")
+	gui.frmQREConfig.chkShowWC.Value(0)
+	gui.frmQREConfig.txtWCOrder.Text("")
+	gui.frmQREConfig.txtDescription.Text("")
+	gui.frmQREConfig.txtSetupTime.Text("")
+	gui.frmQREConfig.ddlTimeType.Text("")
+	gui.frmQREConfig.txtLabourUnit1.Text("")
+	gui.frmQREConfig.txtLabourUnit2.Text("")
+	gui.frmQREConfig.txtSetupRate.Text("")
+	gui.frmQREConfig.txtbilling.Text("")
+	gui.frmQREConfig.txtCostUnit.Text("")
+f.Intrinsic.Control.Else
+	f.Intrinsic.UI.Msgbox("Row already exists, please update in grid below")
+f.Intrinsic.Control.EndIf
+Program.Sub.cmdAdd_Click.End
+
+Program.Sub.cmdPLCust_Click.Start
+V.Local.sRet.Declare(String)
+V.Local.sTitles.Declare(String)
+V.Local.iWidths.Declare(String)
+V.Local.stemp.Declare(String)
+
+F.intrinsic.string.split("PL*!*Description","*!*",Variable.local.sTitles)
+F.intrinsic.string.split("2000*!*3000","*!*",Variable.local.iWidths)
+
+V.Local.ssql.Declare(String)
+V.Local.ssql.set("SELECT product_line,product_line_name FROM V_PRODUCT_LINE")
+
+F.intrinsic.ui.browser("Select a Product line",conx,v.Local.ssql,Variable.local.sTitles,Variable.local.iWidths,Variable.local.sRet)
+
+F.intrinsic.control.if(Variable.local.sRet,"=","***CANCEL***")
+F.intrinsic.control.else
+	F.intrinsic.string.split(Variable.local.sRet,"*!*",Variable.local.sRet)
+	gui.frmQREConfig.txtCustProductLine.Text(v.Local.sRet(0))
+F.Intrinsic.Control.endif
+Program.Sub.cmdPLCust_Click.End
+
+Program.Sub.cmdWCBrowse_Click.Start
+V.Local.sRet.Declare(String)
+V.Local.sTitles.Declare(String)
+V.Local.iWidths.Declare(String)
+V.Local.stemp.Declare(String)
+F.intrinsic.string.split("MACHINE*!*WC_NAME*!*BILLING","*!*",V.local.sTitles)
+F.intrinsic.string.split("2000*!*3000*!*1000","*!*",V.local.iWidths)
+
+V.Local.ssql.Declare(String)
+V.Local.ssql.set("SELECT machine,wc_name,standard_bill FROM V_WORKCENTERS")
+
+F.intrinsic.ui.browser("Select a Workcentre",conx,v.Local.ssql,Variable.local.sTitles,Variable.local.iWidths,Variable.local.sRet)
+
+F.intrinsic.control.if(Variable.local.sRet,"=","***CANCEL***")
+F.intrinsic.control.else
+  F.intrinsic.string.split(Variable.local.sRet,"*!*",Variable.local.sRet)
+  gui.frmQREConfig.txtWCCode.Text(v.Local.sRet(0))
+  gui.frmQREConfig.txtDescription.Text(v.Local.sRet(1))
+  gui.frmQREConfig.txtbilling.Text(v.Local.sRet(2))
+  gui.frmQREConfig.txtSetupRate.text(v.Local.sRet(2))
+F.Intrinsic.Control.endif
+Program.Sub.cmdWCBrowse_Click.End
+
+Program.Sub.cmdCustBrowse_Click.Start
+V.Local.sRet.Declare(String)
+V.Local.sTitles.Declare(String)
+V.Local.iWidths.Declare(String)
+V.Local.stemp.Declare(String)
+
+F.intrinsic.string.split("CUSTOMER*!*NAME_CUSTOMER","*!*",V.local.sTitles)
+F.intrinsic.string.split("2000*!*3000","*!*",V.local.iWidths)
+
+V.Local.ssql.Declare(String)
+V.Local.ssql.set("SELECT customer,name_customer FROM V_CUSTOMER_MASTER")
+
+F.intrinsic.ui.browser("Select a Customer",conx,v.Local.ssql,Variable.local.sTitles,Variable.local.iWidths,Variable.local.sRet)
+
+F.intrinsic.control.if(Variable.local.sRet,"=","***CANCEL***")
+F.intrinsic.control.else
+  F.intrinsic.string.split(Variable.local.sRet,"*!*",Variable.local.sRet)
+  gui.frmQREConfig.txtCustomer.Text(v.Local.sRet(0))
+  gui.frmQREConfig.txtCustomerName.Text(v.Local.sRet(1))
+F.Intrinsic.Control.endif
+Program.Sub.cmdCustBrowse_Click.End
+
+Program.Sub.cmdCostUnit_Click.Start
+V.Local.sRet.Declare(String)
+V.Local.sTitles.Declare(String)
+V.Local.iWidths.Declare(String)
+V.Local.stemp.Declare(String)
+
+F.intrinsic.string.split("UM*!*Description","*!*",Variable.local.sTitles)
+F.intrinsic.string.split("2000*!*3000","*!*",Variable.local.iWidths)
+
+V.Local.ssql.Declare(String)
+V.Local.ssql.set("SELECT code,descr FROM V_UM_CODES")
+
+F.intrinsic.ui.browser("Select a UM Code",conx,v.Local.ssql,Variable.local.sTitles,Variable.local.iWidths,Variable.local.sRet)
+
+F.intrinsic.control.if(Variable.local.sRet,"=","***CANCEL***")
+F.intrinsic.control.else
+  F.intrinsic.string.split(Variable.local.sRet,"*!*",Variable.local.sRet)
+  gui.frmQREConfig.txtCostUnit.Text(v.Local.sRet(0))
+F.Intrinsic.Control.endif
+Program.Sub.cmdCostUnit_Click.End
+
+Program.Sub.cmdDefaultPL_Click.Start
+V.Local.sRet.Declare(String)
+V.Local.sTitles.Declare(String)
+V.Local.iWidths.Declare(String)
+V.Local.stemp.Declare(String)
+
+F.intrinsic.string.split("PL*!*Product Line","*!*",Variable.local.sTitles)
+F.intrinsic.string.split("2000*!*3000","*!*",Variable.local.iWidths)
+
+V.Local.ssql.Declare(String)
+V.Local.ssql.set("SELECT PRODUCT_LINE,PRODUCT_LINE_NAME FROM V_PRODUCT_LINE")
+
+F.intrinsic.ui.browser("Select a Product Line",conx,v.Local.ssql,Variable.local.sTitles,Variable.local.iWidths,Variable.local.sRet)
+
+F.intrinsic.control.if(Variable.local.sRet,"=","***CANCEL***")
+F.intrinsic.control.else
+	F.intrinsic.string.split(Variable.local.sRet,"*!*",Variable.local.sRet)
+	gui.frmQREConfig.txtPL.Text(v.Local.sRet(0))
+F.Intrinsic.Control.endif
+Program.Sub.cmdDefaultPL_Click.End
+
+
+Program.Sub.Comments.Start
+${$0$}$GAB_NET_PLAY$}$SUPERVSR$}$9/07/2016$}$False
+Program.Sub.Comments.End
+
