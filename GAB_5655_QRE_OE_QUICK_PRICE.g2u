@@ -1,0 +1,19 @@
+Program.Sub.Preflight.Start
+Program.External.Include.Library("GAB_5528_QRE_QUICK_PRICE.lib")
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+F.Intrinsic.Control.If(v.Caller.Hook,=,"12440")
+	v.Passed.000162.Set("QRE Price")
+f.Intrinsic.Control.Else
+	v.Local.fround.Declare(string)
+	F.Intrinsic.UI.InvokeWaitDialog("Calculating Price, please wait.")
+'	f.Intrinsic.Control.CallSub(createPreBuilt,"sMyPart",v.Passed.000071,"sMyRev",V.Passed.000072,"sMyQTY",V.Passed.000001)
+'	f.in.control.callsub(QuickPrice)
+'	v.Local.lLastRow.Declare(long)
+'	v.Local.lLastRow.Set(v.DataTable.dtbb.RowCount--)
+'	f.Intrinsic.Math.Round(v.DataTable.dtBB(v.Local.lLastRow).UNIT_PRICE!FIELDVAL,2,v.Local.fRound)
+'	V.Passed.000067.Set(v.Local.fround)
+	f.Intrinsic.UI.CloseWaitDialog
+f.Intrinsic.Control.EndIf
+Program.Sub.Main.End
